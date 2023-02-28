@@ -1,9 +1,19 @@
 <h1>List of all directors</h1>
-<% Director.all.each do |item|%>
-  <li>
-    <%= item.id %>,
-    <%= item.name %>,
-    <%= item.dob %>,
-    <%= item.bio %>
-  </li>
-<% end %>
+
+<table border="1" >
+  <% @list_of_directors.each do |item|%>
+    <tr>
+      <td><%= item.id %></td>
+      <td>
+      <img src="https://robohash.org/<%= item.name %>">
+      </td>
+      <td><%= item.name %></td>
+      <td><%= item.dob %></td>
+      <td>
+        <a href="/directors/<%= item.id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>
